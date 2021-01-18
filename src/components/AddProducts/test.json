@@ -1,0 +1,24 @@
+[{
+    "productName": "Product Three",
+    "productSKU": "Pr-3-bevg",
+    "productCategory": "beverages",
+    "region": "Bangalore",
+    "rating": 5,
+    "price": 10000
+},
+{
+    "productName": "Product Foiur",
+    "productSKU": "Pr-4-foo",
+    "productCategory": "food",
+    "region": "Hyderabad",
+    "rating": 3,
+    "price": 500
+},
+{
+    "productName": "Product Five",
+    "productSKU": "Pr-2-foo",
+    "productCategory": "food",
+    "region": "Hyderabad",
+    "rating": 3,
+    "price": 500
+}]
