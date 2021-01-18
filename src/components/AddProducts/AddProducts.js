@@ -163,6 +163,9 @@ const AddProducts = (props) => {
           setShowMessageBar(true);
           setisJsonForm(false);
           setShowDialog(false);
+          setFilename("");
+          setFileText("");
+          setJsonText("");
         },
         (error) => {
           const resMessage =
