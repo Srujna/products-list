@@ -108,34 +108,28 @@ const ProductsList = (props) => {
   };
   const fetchProducts = async () => {
     try {
-      await ProductsService.getAllProducts().then(
-        (response) => {
-		  setProducts(response.data.data);
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
+      const response = await ProductsService.getAllProducts();
+      setProducts(response); 
+    } catch (error) {
+      const resMessage =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
 
-          setResponseStatus({
-            ...responseStatus,
-            successful: false,
-            message: resMessage,
-          });
-          setShowMessageBar(true);
-        }
-      );
-    } catch (e) {
-      console.log(e);
+      setResponseStatus({
+        ...responseStatus,
+        successful: false,
+        message: resMessage,
+      });
+      setShowMessageBar(true);
     }
   };
 
   useEffect(() => {
     fetchProducts();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteProduct = async (id) => {
