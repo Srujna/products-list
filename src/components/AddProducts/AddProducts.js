@@ -133,8 +133,16 @@ const AddProducts = (props) => {
       let parsedData = !parsed ? JSON.parse(jsonData) : jsonData;
       const ajv = new Ajv({ allErrors: true });
       var validate = ajv.compile(schema);
-      var valid = validate(parsedData);
-      if (!valid) {
+      let invaidflag = false;
+      if (Array.isArray(parsedData)) {
+        parsedData.forEach(obj => {
+          if(!validate(obj)) invaidflag = true;
+        })
+      } else {
+        invaidflag = !validate(parsedData);
+      }
+      
+      if (invaidflag) {
         setResponseStatus({
           ...responseStatus,
           message:
